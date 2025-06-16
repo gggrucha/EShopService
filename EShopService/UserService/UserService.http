@@ -1,0 +1,11 @@
+@UserService_HostAddress = http://localhost:5196
+
+POST {{UserService_HostAddress}}/api/Login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password"
+}
+###
