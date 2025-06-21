@@ -1,12 +1,11 @@
-﻿using EShopDomain.Models;
+﻿using EShop.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EShop.Domain.Repositories
-{
-    public class DataContext : DbContext
-    {
-        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+namespace EShop.Domain.Repositories;
 
-        public DbSet<Product> Products { get; set; }
-    }
+public class DataContext : DbContext
+{
+    public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+
+    public DbSet<Product> Products { get; set; }
 }

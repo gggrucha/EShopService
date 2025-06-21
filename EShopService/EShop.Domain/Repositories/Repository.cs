@@ -1,4 +1,4 @@
-﻿using EShopDomain.Models;
+﻿using EShop.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EShop.Domain.Repositories

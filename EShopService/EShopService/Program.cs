@@ -71,7 +71,7 @@ namespace EShopService
             .AddJwtBearer(options =>
             {
                 var rsa = RSA.Create();
-                rsa.ImportFromPem(File.ReadAllText("../data/public.key"));
+                rsa.ImportFromPem(File.ReadAllText("public.key"));
                 var publicKey = new RsaSecurityKey(rsa);
 
                 options.TokenValidationParameters = new TokenValidationParameters

@@ -1,0 +1,6 @@
+@ClientPanel_HostAddress = http://localhost:5151
+
+GET {{ClientPanel_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

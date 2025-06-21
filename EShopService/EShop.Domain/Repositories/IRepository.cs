@@ -1,4 +1,4 @@
-﻿using EShopDomain.Models;
+﻿using EShop.Domain.Models;
 
 namespace EShop.Domain.Repositories
 {
