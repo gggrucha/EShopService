@@ -9,7 +9,7 @@ using User.Domain.Models.JWT;
 using User.Domain.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<EShop.Domain.Repositories.DbContext>(x => x.UseInMemoryDatabase("TestDb"), ServiceLifetime.Transient);
+builder.Services.AddDbContext<User.Domain.Repositories.UsrDataContext>(x => x.UseInMemoryDatabase("TestDb"),ServiceLifetime.Transient);
 
 // JWT config
 var jwtSettings = builder.Configuration.GetSection("Jwt");
