@@ -1,7 +1,8 @@
-
 using Microsoft.AspNetCore.Mvc;
-using Order.Application.CommandHandlers;
 using Order.Domain.Commands;
+using Order.Domain.Entities;
+using Order.Infrastructure.Repositories;
+using OrderItem = Order.Domain.Entities.OrderItem;
 
 namespace Order.Controllers
 {
@@ -9,18 +10,50 @@ namespace Order.Controllers
     [Route("api/[controller]")]
     public class OrderController : ControllerBase
     {
-        private readonly CreateOrderCommandHandler _handler;
+        private readonly IOrderRepository _repository;
 
-        public OrderController(CreateOrderCommandHandler handler)
+        public OrderController(IOrderRepository repository)
         {
-            _handler = handler;
+            _repository = repository;
         }
 
         [HttpPost]
         public IActionResult CreateOrder([FromBody] CreateOrderCommand command)
         {
-            _handler.Handle(command);
-            return Ok("Order created.");
+            var items = command.Items.Select(i => new OrderItem { ProductId = i.ProductId, Quantity = i.Quantity }).ToList();
+            var order = new CustomerOrder(command.CustomerId, items);
+            _repository.Save(order);
+            return Ok(order);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetOrder(Guid id)
+        {
+            var order = _repository.GetById(id);
+            if (order == null)
+                return NotFound();
+
+            return Ok(order);
+        }
+
+        [HttpGet]
+        public IActionResult GetOrders()
+        {
+            return Ok(_repository.GetAll());
+        }
+
+        [HttpPut("{id}/status")]
+        public IActionResult UpdateStatus(Guid id, [FromBody] string newStatus)
+        {
+            _repository.UpdateStatus(id, newStatus);
+            return Ok($"CustomerOrder {id} status updated to {newStatus}");
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult CancelOrder(Guid id)
+        {
+            _repository.Delete(id);
+            return Ok($"CustomerOrder {id} cancelled");
         }
     }
 }

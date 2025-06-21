@@ -1,5 +1,5 @@
 using Order.Application.Services;
-//using Order.Domain.Interfaces;  //póki co nie potrzebne
+//using Order.Domain.Interfaces;  //pki co nie potrzebne
 using Order.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +14,7 @@ builder.Services.AddScoped<Order.Application.CommandHandlers.CreateOrderCommandH
 //builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Order.Application.Services.CartService).Assembly));
 
 
-//pod spodem pozosta³oœci z shopping cart, które nie s¹ potrzebne w tym projekcie Order
+//pod spodem pozostaoci z shopping cart, ktre nie s potrzebne w tym projekcie CustomerOrder
 // Register dependencies (DIP) 
 //builder.Services.AddSingleton<ICartRepository, InMemoryCartRepository>();
 //builder.Services.AddSingleton<ICartAdder, CartService>();

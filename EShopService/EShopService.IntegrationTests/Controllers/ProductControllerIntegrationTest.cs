@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 using System.Net;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
-using EShopDomain.Models;
+using EShop.Domain.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using System.Text;
