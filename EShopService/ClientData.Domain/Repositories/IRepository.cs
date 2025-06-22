@@ -1,11 +1,11 @@
-﻿using ClientDataBase.Domain.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClientData.Domain.Models;
 
-namespace ClientDataBase.Domain.Repositories;
+namespace ClientData.Domain.Repositories;
 
 public interface IRepository
 {

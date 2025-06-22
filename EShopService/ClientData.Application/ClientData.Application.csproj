@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.14" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClientDataBase.Domain\ClientDataBase.Domain.csproj" />
-    <ProjectReference Include="..\ClientPanel.Domain\ClientPanel.Domain.csproj" />
+    <ProjectReference Include="..\ClientData.Domain\ClientData.Domain.csproj" />
   </ItemGroup>
 
 </Project>

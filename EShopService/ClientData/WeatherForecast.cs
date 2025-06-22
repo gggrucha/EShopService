@@ -1,4 +1,4 @@
-namespace ClientPanel
+namespace ClientData
 {
     public class WeatherForecast
     {

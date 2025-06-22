@@ -1,17 +1,12 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClientDataBase.Domain.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
-using ClientDataBase.Domain.Exceptions;
+using ClientData.Domain.Models;
 
-namespace ClientDataBase.Domain.Repositories;
-
+namespace ClientData.Domain.Repositories;
 public class Repository : IRepository
 {
     public readonly DataContext _context;
@@ -29,7 +24,7 @@ public class Repository : IRepository
     //usuń użytkownika
     public async Task<bool> DeleteClientAsync(int id)
     {
-       
+
         var client = await _context.Clients.FindAsync(id);
         if (client == null) return false; //FindAsync returns ValueTask<Client> not a Client
         _context.Remove(client);
@@ -50,4 +45,3 @@ public class Repository : IRepository
         return await _context.Clients.ToListAsync();
     }
 }
-
