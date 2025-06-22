@@ -1,0 +1,16 @@
+### Add a new product
+POST https://localhost:5001/api/product
+Content-Type: application/json
+
+{
+  "name": "Nowy produkt",
+  "description": "Opis testowy",
+  "price": 99.99,
+  "quantity": 5
+}
+
+### Get all products
+GET https://localhost:5001/api/product
+
+### Get product by ID
+GET https://localhost:5001/api/product/{{productId}}
