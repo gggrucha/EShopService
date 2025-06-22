@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace ClientDataBase.Domain.Models;
-
+namespace ClientData.Domain.Models;
 public class Client
 {
     [Key]
@@ -25,11 +22,11 @@ public class Client
     [Required]
     public string PasswordHash { get; set; }
 
-   // public ICollection<Role> Roles { get; set; }
+    // public ICollection<Role> Roles { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    public DateTime? LastLoginAt { get; set; } 
+    public DateTime? LastLoginAt { get; set; }
 
     public bool IsActive { get; set; } = true;
 

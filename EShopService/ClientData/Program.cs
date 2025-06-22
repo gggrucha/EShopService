@@ -1,9 +1,9 @@
-using ClientDataBase.Application.Services;
-using ClientDataBase.Domain.Repositories;
-using ClientDataBase.Domain.Seeders;
 using Microsoft.EntityFrameworkCore;
-
-namespace ClientDataBase
+using ClientData.Domain;
+using ClientData.Application.Services;
+using ClientData.Domain.Repositories;
+using ClientData.Domain.Seeders;
+namespace ClientData
 {
     public class Program
     {
@@ -11,7 +11,7 @@ namespace ClientDataBase
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<ClientDataBase.Domain.Repositories.DataContext>(x => x.UseInMemoryDatabase("TestDb"), ServiceLifetime.Transient);
+            builder.Services.AddDbContext<ClientData.Domain.Repositories.DataContext>(x => x.UseInMemoryDatabase("TestDb"), ServiceLifetime.Transient);
 
             // Add services to the container.
             builder.Services.AddScoped<IClientDataService, ClientDataService>();
@@ -22,8 +22,8 @@ namespace ClientDataBase
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            
-            
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -48,3 +48,4 @@ namespace ClientDataBase
         }
     }
 }
+
