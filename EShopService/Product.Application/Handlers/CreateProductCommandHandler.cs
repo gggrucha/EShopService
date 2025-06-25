@@ -13,10 +13,10 @@ namespace Product.Application.Handlers
             _repository = repository;
         }
 
-        public void Handle(CreateProductCommand command)
+        public async Task<Guid> Handle(CreateProductCommand command)
         {
             var product = new ProductItem(command.Name, command.Description, command.Price, command.Quantity);
-            _repository.Add(product);
+            return await _repository.Add(product);
         }
     }
 }

@@ -28,12 +28,12 @@ namespace Product.API.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
-            var product = _repository.GetById(id);
+            var product = _repository.GetByIdAsync(id);
             if (product == null) return NotFound();
             return Ok(product);
         }
 
         [HttpGet]
-        public IActionResult GetAll() => Ok(_repository.GetAll());
+        public IActionResult GetAll() => Ok(_repository.GetAllAsync());
     }
 }
