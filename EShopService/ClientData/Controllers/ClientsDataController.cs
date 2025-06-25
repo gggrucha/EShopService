@@ -37,8 +37,12 @@ public class ClientsDataController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult> Get(int id)
     {
-        var result = await _clientDataService.GetClientAsync(id);
-        return Ok(result);
+        var client = await _clientDataService.GetClientAsync(id);
+        if (client == null)
+        {
+            return NotFound("Client not found");
+        }
+        return Ok(client);
     }
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClientData.Domain.Repositories;
 using ClientData.Domain.Models;
+using ClientData.Domain.Exceptions;
 namespace ClientData.Application.Services;
 
 public class ClientDataService : IClientDataService
@@ -24,11 +25,17 @@ public class ClientDataService : IClientDataService
     }
     public async Task<Client> GetClientAsync(int id)
     {
-        return await _repository.GetClientAsync(id);
+            return await _repository.GetClientAsync(id);
     }
+
     public async Task<List<Client>> GetAllClientsAsync()
     {
-        return await _repository.GetAllClientsAsync();
+        var list = await _repository.GetAllClientsAsync();
+        if (list == null || !list.Any())
+        {
+            throw new EmptyListException();
+        }
+        return list;
     }
 }
 
