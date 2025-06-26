@@ -11,22 +11,19 @@ public class Client
     [Key]
     public int Id { get; set; }
 
-    [Required]
     [MaxLength(100)]
-    public string Username { get; set; }
+    public string Username { get; set; } 
 
-    [Required]
     [MaxLength(255)]
-    public string Email { get; set; }
+    public string Email { get; set; } = string.Empty;
 
-    [Required]
     public string PasswordHash { get; set; }
 
     // public ICollection<Role> Roles { get; set; }
 
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow.AddDays(-20);
 
-    public DateTime? LastLoginAt { get; set; }
+    public DateTime? LastLoginAt { get; set; } = DateTime.UtcNow.AddMinutes(-10);
 
     public bool IsActive { get; set; } = true;
 

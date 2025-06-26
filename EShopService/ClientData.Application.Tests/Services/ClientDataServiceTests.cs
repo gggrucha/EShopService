@@ -47,7 +47,7 @@ public class ClientDataServiceTests
     }
      */
     [Fact]
-    public async Task DeleteClientAsync_shouldRemoveClient()
+    public async Task DeleteClientAsync_ShouldRemoveClient()
     {
         //Arrange
         var client = new Client
