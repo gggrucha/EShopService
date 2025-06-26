@@ -15,6 +15,8 @@ namespace Order.Application.CommandHandlers
 
         public void Handle(CreateOrderCommand command)
         {
+            if (command == null)
+                throw new ArgumentNullException(nameof(command));
             // Walidacja, logika biznesowa itp. tutaj
             _repository.Save(command);
         }
